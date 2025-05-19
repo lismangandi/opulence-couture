@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo - Opulence Couture</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfcf9;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #000;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    nav a {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      background: linear-gradient(45deg, #D4AF37, #C5A500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 0.5px #B8860B);
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .vestido {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .vestido:hover {
+      transform: scale(1.02);
+    }
+
+    .vestido img {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .vestido-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .vestido-info h3 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      background: linear-gradient(45deg, #C5A500, #D4AF37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .vestido-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .precio {
+      color: #b38f00;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 2.5rem 1rem 4rem;
+      margin-top: 2rem;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700) 1;
+    }
+
+    footer p {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-contenido img {
+      height: 60px;
+      animation: brillar 2s infinite alternate;
+      filter: drop-shadow(0 0 6px #FFD700);
+    }
+
+    @keyframes brillar {
+      from { filter: drop-shadow(0 0 4px #FFD700); }
+      to { filter: drop-shadow(0 0 10px #FFFACD); }
+    }
+    .titulo-negro {
+     background: none;
+    -webkit-text-fill-color: #000; /* Letra negra */
+    color: #000; /* Por compatibilidad adicional */
+    filter: none; /* Sin brillo */
+}
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1><img src="img/logo.png" alt="logo de Opulence" style="max-height: 240px;"></h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="quienes-somos.html">Quiénes Somos</a>
+    </nav>
+  </header>
+
+  <main>
+  <h2 class="titulo-negro">Catálogo Exclusivo</h2>
+
+    <section class="catalogo">
+      <div class="vestido">
+         <a href="carrito.html" onclick="agregarCarrito('Eterna Brisa', 2450, 'img/elegancia 1.jpg')">
+        <img src="img/elegancia 1.jpg" alt="Eterna Brisa"/>
+      </a>
+
+        <div class="vestido-info">
+          <h3>Eterna Brisa</h3>
+          <p>Eterna Brisa
+            Vestido blanco de corte sirena con escote. Ideal para eventos de noche donde la elegancia pura sea protagonista.</p>
+          <div class="precio">$2,450 USD</div>
+        </div>
+      </div>
+      
+
+      <div class="vestido">
+           <a href="carrito.html" onclick="agregarCarrito('Rubí Imperial', 2450, 'img/elegancia2.jpg')">           
+             <img src="img/elegancia2.jpg" alt="Rubí Imperial"/>
+           </a>
+        <div class="vestido-info">
+          <h3>Rubí Imperial</h3>
+          <p>Vestido rojo vino con escote asimétrico, tela satinada. Transmite poder y sofisticación en cada paso.</p>
+          <div class="precio">$3,900 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Carmesí Real', 2450, 'img/elegancia6.jpg')">           
+             <img src="img/elegancia6.jpg" alt="Carmesí Real"/>
+           </a>
+        <div class="vestido-info">
+          <h3>Carmesí Real</h3>
+          <p>Vino con negro en corte princesa, escote en V. Un vestido digno de una gala de ensueño.</p>
+          <div class="precio">$3,100 USD</div>
+        </div>
+      </div>
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Vestido Noche de Oro', 2450, 'img/elegancia9.jpg')">   
+
+        <img src="img/elegancia9.jpg" alt="Vestido Noche de Oro">
+        </a>
+        <div class="vestido-info">
+          <h3>"Vestido Noche de Oro"</h3>
+          <p>Tul francés con bordados de oro y ceda elegante.</p>
+          <div class="precio">$6,100 USD</div>
+        </div>
+      </div>
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Luz de Luna', 2450, 'img/elegancia3.jpg')">   
+        <img src="img/elegancia3.jpg" alt="Luz de Luna">
+        </a>
+        <div class="vestido-info">
+          <h3>Luz de Luna</h3>
+          <p>Vestido blanco con azul escotado al centro, sin mangas, con una línea definida entre los senos. Pureza y sensualidad.</p>
+          <div class="precio">$3,600 USD</div>
+        </div>
+      </div>
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Vestido Noche de Oro', 2450, 'img/elegancia7.jpg')">   
+        <img src="img/elegancia7.jpg" alt="Vestido Noche de Oro">
+        </a>
+        <div class="vestido-info">
+          <h3>Merlot Royale</h3>
+          <p>Un vestido de gala en tono vino profundo que evoca sofisticación y poder.La caída fluida en satén añaden un toque de realeza moderna.</p>
+          <div class="precio">$3,250 USD</div>
+        </div>
+      </div>
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Reina de Medianoche', 2450, 'img/elegancia4.jpg')">   
+        <img src="img/elegancia4.jpg" alt="Reina de Medianoche">
+        </a>
+        <div class="vestido-info">
+          <h3>Reina de Medianoche</h3>
+          <p>Vestido de gala en negro profundo con detalles en morado imperial que evocan el poder de la realeza. Creando una silueta imponente y elegante. Ideal para quienes desean hacer una entrada inolvidable.</p>
+          <div class="precio">$7,150 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Noir Élégance', 2450, 'img/elegancia8.jpg')">   
+        <img src="img/elegancia8.jpg" alt="Noir Élégance">
+        </a>
+        <div class="vestido-info">
+          <h3>Noir Élégance</h3>
+          <p>Un vestido largo de líneas limpias y escote en V profundo. Su caída fluida en crepé negro realza la elegancia atemporal, ideal para noches de gala con distinción.</p>
+          <div class="precio">$2,700 USD</div>
+        </div>
+      </div>
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Nocturne de Cristal', 2450, 'img/elegancia10.jpg')">   
+        <img src="img/elegancia10.jpg" alt="Nocturne de Cristal">
+        </a>
+        <div class="vestido-info">
+          <h3>Nocturne de Cristal</h3>
+          <p>Deslumbra con este vestido negro sin mangas, adornado con finas piedras que capturan la luz en cada movimiento. Su escote corazón realza el busto con delicadeza, mientras el corte entallado define una silueta sofisticada y seductora.</p>
+          <div class="precio">$9,250 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Celestial', 2450, 'img/elegancia5.jpg')">   
+        <img src="img/elegancia5.jpg" alt="Celestial">
+        </a>
+        <div class="vestido-info">
+
+          <h3>Celestial</h3>
+          <p>Vestido de gala blanco con destellos florales y bordado a mano en todo su diseño.</p>
+          <div class="precio">$5,500 USD</div>
+        </div>
+      </div>
+
+        <div class="vestido">
+          <a href="carrito.html" onclick="agregarCarrito('Arcoiris', 2450, 'img/ele3.jpg')">   
+        <img src="img/ele3.jpg" alt="Arcoiris">
+        </a>
+        <div class="vestido-info">
+          <h3>Arcoiris</h3>
+          <p>Vestido de gala en diferentes tonos, suaves y delicados con pedrieria en todo su diseño.</p>
+          <div class="precio">$9,100 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Armonia', 2450, 'img/ele8.jpg')">   
+        <img src="img/ele8.jpg" alt="Armonia">
+        </a>
+        <div class="vestido-info">
+          <h3>Armonia</h3>
+          <p>Vestido de gala blanco con destellos florales, su escote corazon realza el busto con delicadesa perfecto para ocaciones especiales.</p>
+          <div class="precio">$6,300 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Esmeralda Real', 2450, 'img/ele4.jpg')">
+        <img src="img/ele4.jpg" alt="Esmeralda Real">
+        </a>
+        <div class="vestido-info">
+          <h3>Esmeralda Real</h3>
+          <p>Un diseño sin mangas de corte elegante, confeccionado en satén verde esmeralda que brilla con cada paso. El escote en forma de simetrica y la silueta entallada evocan un aire de lujo natural y poder femenino.</p>
+          <div class="precio">$3,200 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Susurro de Rosas', 2450, 'img/ele9.jpg')">
+        <img src="img/ele9.jpg" alt="Susurro de Rosas">
+       </a>
+        <div class="vestido-info">
+          <h3>Susurro de Rosas</h3>
+          <p>Romántico y delicado, este vestido sin mangas envuelve con suavidad en tono rosa pastel. Su caída ligera y el escote clásico realzan la gracia de una musa moderna.</p>
+          <div class="precio">$6,000 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Galaxia Imperial', 2450, 'img/ele6.jpg')">
+        <img src="img/ele6.jpg" alt="Galaxia Imperial">
+        </a>
+        <div class="vestido-info">
+          <h3>Galaxia Imperial</h3>
+          <p>Impactante vestido sin mangas, de tono morado metálico y diseño asimétrico con un solo tirante decorado. Brilla con intensidad en cada ángulo, ideal para una reina de la noche con estilo audaz y contemporáneo.</p>
+          <div class="precio">$7,300 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Atardecer en Sombra', 2450, 'img/ele7.jpg')">
+        <img src="img/ele7.jpg" alt="Atardecer en Sombra">
+       </a>
+        <div class="vestido-info">
+          <h3>Atardecer en Sombra</h3>
+          <p>Vestido sin mangas en negro con acentos anaranjados, escote tipo corazón que realza con magnetismo sutil.</p>
+          <div class="precio">$8,200  USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Cielo', 2450, 'img/ele12.jpg')">
+        <img src="img/ele12.jpg" alt="Cielo">
+        </a>
+        <div class="vestido-info">
+          <h3>Celestial</h3>
+          <p>Vestido de gala blanco con destellos florales y bordado a mano en todo su diseño.</p>
+          <div class="precio">$5,500 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Rubí Obsidiana', 2450, 'img/ele10.jpg')">
+        <img src="img/ele10.jpg" alt="Rubí Obsidiana">
+        </a>
+        <div class="vestido-info">
+          <h3>Rubí Obsidiana</h3>
+          <p>Vestido negro entallado con pedrería roja que resalta como brasas sobre la noche. Una silueta audaz y refinada.</p>
+          <div class="precio">$8,900 USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Aura Nupcial', 2450, 'img/ele2.jpg')">
+        <img src="img/ele2.jpg" alt="Aura Nupcial">
+        </a>
+        <div class="vestido-info">
+          <
+          <h3>Aura Nupcial</h3>
+          <p>Vestido blanco con pedrería bordada a mano, mangas elegantes y escote en forma de lágrima profunda.</p>
+          <div class="precio">$11,500  USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Encanto Celestial', 2450, 'img/ele1.jpg')">
+        <img src="img/ele1.jpg" alt="Encanto Celestial">
+        </a>
+        <div class="vestido-info">
+          <h3>Encanto Celestial</h3>
+          <p>Diseño azul translúcido con bordado artístico en zonas estratégicas. Escote profundo en forma imperial para un efecto etéreo.</p>
+          <div class="precio">$12,300  USD</div>
+        </div>
+      </div>
+
+      <div class="vestido">
+        <a href="carrito.html" onclick="agregarCarrito('Cielo de ceda', 2450, 'img/ele11.jpg')">
+        <img src="img/ele11.jpg" alt="Cielo de ceda">
+        </a>
+        <div class="vestido-info">
+
+          <h3>Cielo de Seda</h3>
+          <p>Diseño azul con mangas cortas, escote profundo en forma de cáliz y falda amplia que flota con elegancia.</p>
+          <div class="precio">$7,800  USD</div>
+        </div>
+      </div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-contenido">
+      <img src="img/corona.jpg" alt="Corona Opulence" />
+      <p>&copy; 2025 Opulence Couture - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+
+  <script>
+  function agregarCarrito(nombre, precio, imagen) {
+    // Obtener el carrito actual del localStorage o crear uno nuevo si no existe
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Agregar el vestido nuevo al carrito
+    carrito.push({ nombre, precio, imagen });
+
+    // Guardar carrito actualizado en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Confirmar al usuario
+    alert('Vestido "' + nombre + '" agregado al carrito.');
+  }
+</script>
+
+</body>
+</html>
