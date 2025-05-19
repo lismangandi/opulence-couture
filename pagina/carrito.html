@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - Opulence Couture</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfcf9;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #000;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    nav a {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #FFD700;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f5f0e6;
+      font-weight: bold;
+    }
+
+    td img {
+      max-height: 100px;
+      border-radius: 10px;
+    }
+
+    .eliminar {
+      color: crimson;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700) 1;
+    }
+
+    footer p {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 2.5rem 1rem 4rem;
+      margin-top: 2rem;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700) 1;
+    }
+
+    footer p {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-contenido img {
+      height: 60px;
+      animation: brillar 2s infinite alternate;
+      filter: drop-shadow(0 0 6px #FFD700);
+    }
+
+    @keyframes brillar {
+      from { filter: drop-shadow(0 0 4px #FFD700); }
+      to { filter: drop-shadow(0 0 10px #FFFACD); }
+    }
+
+    .titulo-negro {
+      color: black;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="logo" style="max-height: 140px;" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="quienes-somos.html">Quiénes Somos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="titulo-negro">Carrito de Compras</h2>
+
+    <table id="tabla-carrito">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total" id="total">Total: $0</div>
+  </main>
+
+  <footer>
+    <div class="footer-contenido">
+      <img src="img/corona.jpg" alt="Corona Opulence" />
+      <p>&copy; 2025 Opulence Couture - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    const tablaBody = document.querySelector('#tabla-carrito tbody');
+    const totalDiv = document.getElementById('total');
+
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    function mostrarCarrito() {
+      tablaBody.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td><img src="${item.imagen}" alt="${item.nombre}"></td>
+          <td>${item.nombre}</td>
+          <td>$${item.precio.toFixed(2)}</td>
+          <td>
+            <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="cantidad-input" style="width: 60px; text-align: center;" />
+          </td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td><span class="eliminar" onclick="eliminar(${index})">X</span></td>
+        `;
+        tablaBody.appendChild(fila);
+      });
+
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+
+      // Añadir event listeners a inputs para modificar cantidad
+      document.querySelectorAll('.cantidad-input').forEach(input => {
+        input.addEventListener('change', (e) => {
+          const idx = e.target.getAttribute('data-index');
+          let nuevaCantidad = parseInt(e.target.value);
+          if (isNaN(nuevaCantidad) || nuevaCantidad < 1) {
+            nuevaCantidad = 1;
+            e.target.value = 1;
+          }
+          carrito[idx].cantidad = nuevaCantidad;
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+          mostrarCarrito();
+        });
+      });
+    }
+
+    function eliminar(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+
+    mostrarCarrito();
+  </script>
+
+  <script>
+    // Obtener datos por URL y agregar al carrito si vienen definidos
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get('nombre');
+    const precioTexto = params.get('precio');
+    const imagen = params.get('img');
+
+    if (nombre && precioTexto && imagen) {
+      const precio = parseFloat(precioTexto.replace(/[^\d.-]/g, '')) || 0;
+
+      const indexExistente = carrito.findIndex(item => item.nombre === nombre);
+
+      if (indexExistente !== -1) {
+        carrito[indexExistente].cantidad += 1;
+      } else {
+        carrito.push({
+          nombre,
+          precio,
+          imagen,
+          cantidad: 1
+        });
+      }
+
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+  </script>
+</body>
+</html>

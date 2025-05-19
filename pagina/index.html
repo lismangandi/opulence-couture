@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opulence Couture</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfcf9;
+      color: #1a1a1a;
+      animation: fadeInBody 1.5s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background-color: #000;
+      padding: 1.5rem 0;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    nav a {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .bienvenida {
+      text-align: center;
+      padding: 3rem 2rem;
+      background-color: #fff8e1;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .bienvenida h2 {
+      font-size: 2.2rem;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+
+    .bienvenida p {
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+
+    .boton-dorado {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      color: #000;
+      padding: 0.7rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+      border: none;
+    }
+
+    .boton-dorado:hover {
+      background: linear-gradient(45deg, #e6c200, #fff1b5, #e6c200);
+    }
+
+    .destacados {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .carrusel {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .carrusel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carrusel-item {
+      flex: 0 0 33.3333%;
+      box-sizing: border-box;
+      padding: 0.5rem;
+    }
+
+    .carrusel-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .carrusel-boton {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.6);
+      color: #FFD700;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .carrusel-boton:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .seccion-lujo {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #fffef9, #f5f0dc);
+      text-align: center;
+    }
+
+    .tarjeta-lujo {
+      width: 300px;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .tarjeta-lujo:hover {
+      transform: scale(1.05);
+    }
+
+    .tarjeta-lujo h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #b39700;
+    }
+
+    .tarjeta-lujo p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 2.5rem 1rem 4rem;
+      margin-top: 2rem;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700) 1;
+    }
+
+    footer p {
+      background: linear-gradient(45deg, #FFD700, #FFF8DC, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-contenido img {
+      height: 60px;
+      animation: brillar 2s infinite alternate;
+      filter: drop-shadow(0 0 6px #FFD700);
+    }
+
+    @keyframes brillar {
+      from { filter: drop-shadow(0 0 4px #FFD700); }
+      to { filter: drop-shadow(0 0 10px #FFFACD); }
+    }
+
+    .fuegos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .fuego {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700 0%, #C0C0C0 100%);
+      animation: explotar 1s ease-out forwards;
+    }
+
+    @keyframes explotar {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(5);
+        opacity: 0;
+      }
+    }
+    .bienvenida {
+  text-align: center;
+  margin-top: 4rem;
+  animation: entrada 2s ease-in-out;
+}
+
+.bienvenida h1.animado {
+  font-size: 4rem;
+  background: linear-gradient(90deg, #FFD700, #FFF8DC, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brillo 3s infinite alternate;
+}
+
+.bienvenida .frase {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #FFF8DC;
+  animation: desvanecer 3s ease-in-out;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brillo {
+  0% { filter: drop-shadow(0 0 4px #FFD700); }
+  100% { filter: drop-shadow(0 0 12px #FFFACD); }
+}
+
+@keyframes desvanecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  .hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
+}
+
+.contenido-hero {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  color: #FFF8DC;
+}
+
+.contenido-hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #FFD700, #FFF8DC, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brillo 3s infinite alternate;
+}
+
+.contenido-hero p {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+#particulas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+      
+   
+      <h1><img src="img/logo.png" alt="logo de Opulence" style="max-height: 260px;"></h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bienvenida">
+      <h2>Vestidos de Gala Exclusivos</h2>
+      <p>“La elegancia no es ser notado, es ser recordado.” – Giorgio Armani</p>
+      <a href="catalogo.html" class="boton-dorado">Ver Colección</a>
+    </section>
+
+    <section class="destacados">
+      <h3>Colección Destacada</h3>
+      <div class="carrusel">
+        <button class="carrusel-boton prev" onclick="moverCarrusel(-1)">❮</button>
+        <div class="carrusel-inner" id="carrusel">
+          <div class="carrusel-item"><img src="img/vestido7.jpg" alt="Vestido de gala 1"></div>
+          <div class="carrusel-item"><img src="img/vestido9.jpg" alt="Vestido de gala 2"></div>
+          <div class="carrusel-item"><img src="img/vestido10.jpg" alt="Vestido de gala 3"></div>
+          <div class="carrusel-item"><img src="img/vestido1.jpg" alt="Vestido de gala 4"></div>
+          <div class="carrusel-item"><img src="img/vestido6.jpg" alt="Vestido de gala 5"></div>
+          <div class="carrusel-item"><img src="img/vestido3.jpg" alt="Vestido de gala 6"></div>
+        </div>
+        <button class="carrusel-boton next" onclick="moverCarrusel(1)">❯</button>
+        <div class="fuegos" id="fuegos"></div>
+      </div>
+    </section>
+
+    <section class="seccion-lujo">
+      <div class="tarjeta-lujo">
+        <img src="img/vestido-allegra.jpg" alt="Vestido Allegra" style="width:100%; border-radius: 15px; margin-bottom: 1rem;">
+        <h4>“Allegra”</h4>
+        <p>Vestido sirena con pedrería bordada a mano y cola de tul francés. Ideal para galas nocturnas.</p>
+      </div>
+      <div class="tarjeta-lujo">
+        <img src="img/vestido-solstice.jpg" alt="Vestido Solstice" style="width:100%; border-radius: 15px; margin-bottom: 1rem;">
+        <h4>“Solstice Doré”</h4>
+        <p>Diseño corte princesa en satén dorado con escote estructurado. Inspiración celestial para reinas modernas.</p>
+      </div>
+      <div class="tarjeta-lujo">
+        <img src="img/vestido-victoria.jpg" alt="Vestido Victoria" style="width:100%; border-radius: 15px; margin-bottom: 1rem;">
+        <h4>“Victoria Royale”</h4>
+        <p>Encaje chantilly sobre seda negra. Elegancia imperial con detalles en hilos metálicos oro antiguo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-contenido">
+      <img src="img/corona.jpg" alt="Corona Opulence" />
+      <p>&copy; 2025 Opulence Couture - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    let indice = 0;
+    const carrusel = document.getElementById('carrusel');
+    const totalItems = carrusel.children.length;
+    const itemsPorVista = 3;
+    const fuegos = document.getElementById('fuegos');
+
+    function moverCarrusel(direccion) {
+      indice += direccion;
+      if (indice < 0) {
+        indice = Math.floor(totalItems / itemsPorVista) - 1;
+      } else if (indice >= Math.floor(totalItems / itemsPorVista)) {
+        indice = 0;
+      }
+      carrusel.style.transform = `translateX(-${indice * 100}%)`;
+
+      if (indice === 0) {
+        mostrarFuegosArtificiales();
+      }
+    }
+
+    function mostrarFuegosArtificiales() {
+      fuegos.innerHTML = '';
+      for (let i = 0; i < 20; i++) {
+        const fuego = document.createElement('div');
+        fuego.classList.add('fuego');
+        fuego.style.left = Math.random() * 100 + '%';
+        fuego.style.top = Math.random() * 100 + '%';
+        fuegos.appendChild(fuego);
+      }
+      setTimeout(() => {
+        fuegos.innerHTML = '';
+      }, 1000);
+    }
+
+    setInterval(() => {
+      moverCarrusel(1);
+    }, 6000);
+  </script>
+
+
+ 
+</body>
+</html>
